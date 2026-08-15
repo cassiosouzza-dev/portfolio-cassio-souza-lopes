@@ -21,20 +21,22 @@ themeToggle.addEventListener('click', () => {
 
 /* ==========================================================================
    2. MENU RESPONSIVO (MOBILE)
-   Alterna a classe "open" no menu e atualiza aria-expanded para acessibilidade.
    ========================================================================== */
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
+let menuAberto = false;
 
 menuToggle.addEventListener('click', () => {
-  const aberto = navLinks.classList.toggle('open');
-  menuToggle.setAttribute('aria-expanded', aberto);
+  menuAberto = !menuAberto;
+  navLinks.style.maxHeight = menuAberto ? '300px' : '0';
+  menuToggle.setAttribute('aria-expanded', menuAberto);
 });
 
-// Fecha o menu mobile automaticamente ao escolher uma seção
+// fecha o menu ao escolher uma seção
 navLinks.querySelectorAll('.nav-link').forEach((link) => {
   link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
+    menuAberto = false;
+    navLinks.style.maxHeight = '0';
     menuToggle.setAttribute('aria-expanded', 'false');
   });
 });
@@ -42,33 +44,37 @@ navLinks.querySelectorAll('.nav-link').forEach((link) => {
 /* ==========================================================================
    3. VALIDAÇÃO E ENVIO (SIMULADO) DO FORMULÁRIO DE CONTATO
    ========================================================================== */
-const form = document.getElementById('contactForm');
+const nomeInput = document.getElementById('nome');
+const emailInput = document.getElementById('email');
+const mensagemInput = document.getElementById('mensagem');
+const erroNome = document.getElementById('erroNome');
+const erroEmail = document.getElementById('erroEmail');
+const erroMensagem = document.getElementById('erroMensagem');
+const btnEnviar = document.getElementById('btnEnviar');
 const modalOverlay = document.getElementById('modalOverlay');
 const modalMessage = document.getElementById('modalMessage');
 const modalClose = document.getElementById('modalClose');
 
-const REGEX_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// considera válido um e-mail com um "@" e um "." depois dele
+function emailValido(email) {
+  const partes = email.split('@');
+  if (partes.length !== 2 || partes[0] === '') return false;
 
-// Marca visualmente um campo inválido e escreve a mensagem de erro correspondente
+  const dominio = partes[1].split('.');
+  return dominio.length >= 2 && dominio[dominio.length - 1] !== '';
+}
+
 function mostrarErro(campo, elementoErro, mensagem) {
-  campo.classList.add('invalid');
+  campo.style.borderColor = 'var(--error)';
   elementoErro.textContent = mensagem;
 }
 
 function limparErro(campo, elementoErro) {
-  campo.classList.remove('invalid');
+  campo.style.borderColor = '';
   elementoErro.textContent = '';
 }
 
 function validarFormulario() {
-  const nomeInput = document.getElementById('nome');
-  const emailInput = document.getElementById('email');
-  const mensagemInput = document.getElementById('mensagem');
-
-  const erroNome = document.getElementById('erroNome');
-  const erroEmail = document.getElementById('erroEmail');
-  const erroMensagem = document.getElementById('erroMensagem');
-
   let valido = true;
 
   if (nomeInput.value.trim() === '') {
@@ -81,7 +87,7 @@ function validarFormulario() {
   if (emailInput.value.trim() === '') {
     mostrarErro(emailInput, erroEmail, 'Informe seu e-mail.');
     valido = false;
-  } else if (!REGEX_EMAIL.test(emailInput.value.trim())) {
+  } else if (!emailValido(emailInput.value.trim())) {
     mostrarErro(emailInput, erroEmail, 'Informe um e-mail válido (ex: usuario@dominio.com).');
     valido = false;
   } else {
@@ -100,22 +106,19 @@ function validarFormulario() {
 
 function abrirModal(mensagem) {
   modalMessage.textContent = mensagem;
-  modalOverlay.classList.remove('hidden');
+  modalOverlay.style.display = 'flex';
 }
 
 function fecharModal() {
-  modalOverlay.classList.add('hidden');
+  modalOverlay.style.display = 'none';
 }
 
-form.addEventListener('submit', (evento) => {
-  evento.preventDefault(); // impede o envio real, pois não há backend nesta atividade
+btnEnviar.addEventListener('click', () => {
+  if (!validarFormulario()) return;
 
-  if (!validarFormulario()) {
-    return;
-  }
-
-  // Simulação de envio: em um cenário real, aqui entraria uma chamada a uma API
-  form.reset();
+  nomeInput.value = '';
+  emailInput.value = '';
+  mensagemInput.value = '';
   abrirModal('Mensagem enviada com sucesso! Em breve retornarei o contato.');
 });
 

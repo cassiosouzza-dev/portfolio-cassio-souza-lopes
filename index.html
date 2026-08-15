@@ -132,8 +132,8 @@
             <p><strong>GitHub:</strong> <a href="https://github.com/cassiosouzza-dev" target="_blank" rel="noopener noreferrer">github.com/cassiosouzza-dev</a></p>
           </div>
 
-          <!-- Formulário validado via JavaScript (js/script.js) -->
-          <form id="contactForm" class="contact-form" novalidate>
+          <!-- Campos validados via JavaScript ao clicar no botão (js/script.js) -->
+          <div id="contactForm" class="contact-form">
             <div class="form-group">
               <label for="nome">Nome</label>
               <input type="text" id="nome" name="nome" placeholder="Seu nome completo">
@@ -152,8 +152,8 @@
               <span class="error-message" id="erroMensagem"></span>
             </div>
 
-            <button type="submit" class="btn-submit">Enviar mensagem</button>
-          </form>
+            <button type="button" id="btnEnviar" class="btn-submit">Enviar mensagem</button>
+          </div>
         </div>
       </div>
     </section>
@@ -165,7 +165,7 @@
   </footer>
 
   <!-- Modal de confirmação de envio do formulário -->
-  <div id="modalOverlay" class="modal-overlay hidden">
+  <div id="modalOverlay" class="modal-overlay">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalMessage">
       <p id="modalMessage"></p>
       <button id="modalClose" class="btn-submit">Fechar</button>

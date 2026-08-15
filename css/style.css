@@ -366,12 +366,6 @@ ul {
   outline-offset: 1px;
 }
 
-/* Aplicado via JS quando um campo não passa na validação */
-.form-group input.invalid,
-.form-group textarea.invalid {
-  border-color: var(--error);
-}
-
 .error-message {
   color: var(--error);
   font-size: 0.85rem;
@@ -408,18 +402,15 @@ ul {
 /* ==========================================================================
    MODAL DE CONFIRMAÇÃO
    ========================================================================== */
+/* JS troca display para flex/none */
 .modal-overlay {
   position: fixed;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   z-index: 200;
-}
-
-.modal-overlay.hidden {
-  display: none;
 }
 
 .modal {
@@ -461,11 +452,6 @@ ul {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
-  }
-
-  /* Classe adicionada/removida via JS ao clicar no hambúrguer */
-  .nav-links.open {
-    max-height: 300px;
   }
 
   .nav-links li {
