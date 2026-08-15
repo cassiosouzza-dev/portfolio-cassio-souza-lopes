@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cássio de Souza Lopes | Portfólio</title>
+  <meta name="description" content="Portfólio pessoal de Cássio de Souza Lopes - Estudante de Análise e Desenvolvimento de Sistemas">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%92%BB</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Cabeçalho fixo com menu de navegação: presente em todas as seções (site de página única) -->
+  <header class="header" id="topo">
+    <div class="navbar container">
+      <a href="#topo" class="logo">Cássio Lopes</a>
+
+      <!-- Botão hambúrguer: exibido apenas em telas pequenas (ver media query no CSS) -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#sobre" class="nav-link">Sobre mim</a></li>
+        <li><a href="#formacao" class="nav-link">Formação</a></li>
+        <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
+        <li><a href="#contato" class="nav-link">Contato</a></li>
+      </ul>
+
+      <!-- Alternância de tema claro/escuro -->
+      <button id="themeToggle" class="theme-toggle" aria-label="Alternar tema claro/escuro" title="Alternar tema">🌙</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===================== SOBRE MIM ===================== -->
+    <section id="sobre" class="section hero">
+      <div class="container hero-content">
+        <div class="avatar" aria-hidden="true">CL</div>
+        <h1>Cássio de Souza Lopes</h1>
+        <p class="subtitle">Estudante de Análise e Desenvolvimento de Sistemas</p>
+        <p class="location">📍 Montes Claros/MG</p>
+
+        <p class="bio">
+          Sou economista e mestre em Desenvolvimento Social, atualmente em transição de carreira
+          para a área de tecnologia, cursando Análise e Desenvolvimento de Sistemas. Gosto de unir
+          a experiência com análise de dados e gestão pública à programação, criando ferramentas
+          que resolvem problemas reais do dia a dia.
+        </p>
+
+        <div class="hobbies">
+          <h2>Hobbies</h2>
+          <ul class="tag-list">
+            <li>🎸 Tocar violão</li>
+            <li>💻 Programar</li>
+            <li>🎮 Jogar video game</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FORMAÇÃO ===================== -->
+    <section id="formacao" class="section">
+      <div class="container">
+        <h2 class="section-title">Formação</h2>
+
+        <ul class="timeline">
+          <li class="timeline-item">
+            <span class="timeline-tag">Em andamento</span>
+            <h3>CST Análise e Desenvolvimento de Sistemas</h3>
+            <p>Centro Universitário Internacional (Uninter)</p>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-tag">Concluído</span>
+            <h3>Mestrado em Desenvolvimento Social</h3>
+            <p>Universidade Estadual de Montes Claros (Unimontes)</p>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-tag">Concluído</span>
+            <h3>Bacharelado em Ciências Econômicas</h3>
+            <p>Universidade Estadual de Montes Claros (Unimontes)</p>
+          </li>
+        </ul>
+
+        <h3 class="sub-title">Idiomas</h3>
+        <ul class="tag-list">
+          <li>🇧🇷 Português — Nativo</li>
+          <!-- TODO: ajuste/adicione seus idiomas e níveis reais aqui -->
+          <li>🇺🇸 Inglês — (edite seu nível aqui)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== PORTFÓLIO ===================== -->
+    <section id="portfolio" class="section">
+      <div class="container">
+        <h2 class="section-title">Portfólio</h2>
+        <p class="section-intro">Alguns projetos que desenvolvi:</p>
+
+        <div class="cards-grid">
+          <article class="card">
+            <h3>Integritas-AIH</h3>
+            <p>Programa de auditoria de faturamento hospitalar.</p>
+            <a href="https://github.com/cassiosouzza-dev" target="_blank" rel="noopener noreferrer" class="card-link">Ver no GitHub →</a>
+          </article>
+
+          <article class="card">
+            <h3>ExtratorSUS</h3>
+            <p>Extrator de dados de PDF de produção ambulatorial e hospitalar para planilha estruturada, permitindo análises dinâmicas.</p>
+            <a href="https://github.com/cassiosouzza-dev" target="_blank" rel="noopener noreferrer" class="card-link">Ver no GitHub →</a>
+          </article>
+
+          <article class="card">
+            <h3>GCI-Workspace</h3>
+            <p>Gestão Contratual Inteligente: sistema de controle de saldos de empenho e de contratos, com registro de pagamentos.</p>
+            <a href="https://github.com/cassiosouzza-dev" target="_blank" rel="noopener noreferrer" class="card-link">Ver no GitHub →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTATO ===================== -->
+    <section id="contato" class="section">
+      <div class="container">
+        <h2 class="section-title">Contato</h2>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <p><strong>E-mail:</strong> <a href="mailto:cassio.souzza@gmail.com">cassio.souzza@gmail.com</a></p>
+            <p><strong>WhatsApp:</strong> <a href="https://wa.me/5538997443564" target="_blank" rel="noopener noreferrer">(38) 99744-3564</a></p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/cassiosouzza-dev" target="_blank" rel="noopener noreferrer">github.com/cassiosouzza-dev</a></p>
+          </div>
+
+          <!-- Formulário validado via JavaScript (js/script.js) -->
+          <form id="contactForm" class="contact-form" novalidate>
+            <div class="form-group">
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" name="nome" placeholder="Seu nome completo">
+              <span class="error-message" id="erroNome"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="email">E-mail</label>
+              <input type="text" id="email" name="email" placeholder="seuemail@dominio.com">
+              <span class="error-message" id="erroEmail"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="mensagem">Mensagem</label>
+              <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem"></textarea>
+              <span class="error-message" id="erroMensagem"></span>
+            </div>
+
+            <button type="submit" class="btn-submit">Enviar mensagem</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; <span id="ano"></span> Cássio de Souza Lopes. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Modal de confirmação de envio do formulário -->
+  <div id="modalOverlay" class="modal-overlay hidden">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalMessage">
+      <p id="modalMessage"></p>
+      <button id="modalClose" class="btn-submit">Fechar</button>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

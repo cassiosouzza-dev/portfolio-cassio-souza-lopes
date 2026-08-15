@@ -1,0 +1,483 @@
+/* ==========================================================================
+   VARIÁVEIS DE TEMA
+   Tema claro é o padrão. O JS troca o atributo data-theme do <html>
+   para "dark", o que substitui as variáveis abaixo pelo bloco escuro.
+   ========================================================================== */
+:root {
+  --bg: #f5f6fa;
+  --bg-alt: #ffffff;
+  --text: #1f2333;
+  --text-muted: #5c6070;
+  --primary: #4f46e5;
+  --primary-dark: #3730a3;
+  --border: #e2e4ec;
+  --card-shadow: 0 4px 14px rgba(31, 35, 51, 0.08);
+  --error: #d92d20;
+  --success: #12793f;
+}
+
+[data-theme="dark"] {
+  --bg: #14151f;
+  --bg-alt: #1c1e2b;
+  --text: #eef0f7;
+  --text-muted: #a6a9bd;
+  --primary: #818cf8;
+  --primary-dark: #6366f1;
+  --border: #2c2f42;
+  --card-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  --error: #f87171;
+  --success: #4ade80;
+}
+
+/* ==========================================================================
+   RESET E BASE
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Compensa a altura do cabeçalho fixo ao navegar por âncoras */
+.section {
+  scroll-margin-top: 80px;
+  padding: 5rem 0;
+}
+
+.section:nth-of-type(even) {
+  background-color: var(--bg-alt);
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.sub-title {
+  font-size: 1.25rem;
+  margin: 2.5rem 0 1rem;
+}
+
+.section-intro {
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+/* ==========================================================================
+   CABEÇALHO / MENU DE NAVEGAÇÃO
+   ========================================================================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--bg-alt);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.logo:hover {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Botão hambúrguer: escondido no desktop, exibido só em telas pequenas */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: var(--text);
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   HERO / SOBRE MIM
+   ========================================================================== */
+.hero {
+  padding-top: 9rem;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 700px;
+}
+
+.avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.location {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.bio {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.hobbies {
+  text-align: left;
+}
+
+.hobbies h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.tag-list li {
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   FORMAÇÃO (linha do tempo)
+   ========================================================================== */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.timeline-item {
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+}
+
+.timeline-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--primary);
+  margin-bottom: 0.35rem;
+}
+
+.timeline-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.2rem;
+}
+
+.timeline-item p {
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   PORTFÓLIO
+   ========================================================================== */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+.card h3 {
+  margin-bottom: 0.6rem;
+}
+
+.card p {
+  color: var(--text-muted);
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+.card-link {
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   CONTATO
+   ========================================================================== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 3rem;
+}
+
+.contact-info p {
+  margin-bottom: 1rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea {
+  font: inherit;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background-color: var(--bg-alt);
+  color: var(--text);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+
+/* Aplicado via JS quando um campo não passa na validação */
+.form-group input.invalid,
+.form-group textarea.invalid {
+  border-color: var(--error);
+}
+
+.error-message {
+  color: var(--error);
+  font-size: 0.85rem;
+  min-height: 1em;
+}
+
+.btn-submit {
+  align-self: flex-start;
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.6rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-submit:hover {
+  background-color: var(--primary-dark);
+}
+
+/* ==========================================================================
+   RODAPÉ
+   ========================================================================== */
+.footer {
+  text-align: center;
+  padding: 2rem 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   MODAL DE CONFIRMAÇÃO
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.modal-overlay.hidden {
+  display: none;
+}
+
+.modal {
+  background-color: var(--bg-alt);
+  border-radius: 10px;
+  padding: 2rem;
+  max-width: 360px;
+  text-align: center;
+  box-shadow: var(--card-shadow);
+}
+
+.modal #modalMessage {
+  margin-bottom: 1.25rem;
+  font-size: 1.05rem;
+}
+
+/* ==========================================================================
+   RESPONSIVO (MOBILE)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+    order: 3;
+  }
+
+  .theme-toggle {
+    order: 2;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-alt);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  /* Classe adicionada/removida via JS ao clicar no hambúrguer */
+  .nav-links.open {
+    max-height: 300px;
+  }
+
+  .nav-links li {
+    border-top: 1px solid var(--border);
+  }
+
+  .nav-link {
+    display: block;
+    padding: 1rem 1.5rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
