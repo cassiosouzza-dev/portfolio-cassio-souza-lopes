@@ -28,5 +28,4 @@ Portfólio online desenvolvido para a atividade prática da disciplina **Fundame
 
 ## Site publicado
 
-<!-- Após publicar no GitHub Pages, atualize o link abaixo -->
-https://cassiosouzza-dev.github.io/NOME-DO-REPOSITORIO/
+https://cassiosouzza-dev.github.io/portfolio-cassio-souza-lopes/
